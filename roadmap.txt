@@ -1,75 +1,53 @@
-this is the project that is going to go on my CV for Post 16 computer science
+Finance Tracker Project Roadmap
 
-It is going to be a finance tracker equipped with expenses, income, budgets and savings. This can include features to record transactions,categorise expenses and visualise financial data
+Overview:
+A personal finance tracker for your CV (Post 16 Computer Science) that helps users record transactions, categorize expenses, track income, set budgets, monitor savings, and visualize financial data. The goal is to provide both a simple CLI and a user-friendly GUI.
 
-1. with or without GUI?
-Most likely with GUI
+Core Features:
+- Record income and expenses (with date, description, category, amount)
+- Categorize transactions (e.g., Food, Rent, Utilities, Savings, Income, Other)
+- Set and view budgets for categories
+- Track savings goals and progress
+- Visualize spending (pie and bar charts)
+- Store all data in a local database (sqlite3)
+- Clear all data if needed
 
-o develop a personal financial management application in Python, you can break down the functionality into several modules. The application will allow users to record transactions, categorize expenses, track income, set budgets, monitor savings, and visualize financial data. Below is a step-by-step guide on how to design the application, including sample Python code for each part.
+Technologies:
+- Python
+- sqlite3 (database)
+- matplotlib (visualizations)
+- pandas (optional, for advanced data analysis)
+- tkinter (for GUI)
+- flask (optional, for future web app)
 
-Components of the Application
+Current Status:
+- CLI version: Fully functional for all features
+- GUI: Basic, currently only supports visualization
 
-Transaction Recording
+What is remaining?
+- A proper app-like feel with a full GUI, as the current terminal version is functional but not user-friendly enough for an "application" experience.
 
-Users can input their income and expenses.
-Transactions are categorized (e.g., "Food," "Rent," "Utilities," "Savings").
-Each transaction has a date, description, category, and amount.
+Decomposition / Next Steps:
+1. Design the full GUI using tkinter
+2. Integrate all features (transactions, budgets, savings, visualization, data clearing) into the GUI
+3. Ensure smooth backend linking so data flows correctly between GUI and database
+4. Add advanced features (optional): export to CSV/Excel, recurring transactions, reports, user authentication
 
-Budget Tracking
-
-Users can set budgets for different categories.
-The app should track whether users are staying within their budget.
-
-Savings Goals
-
-Users can track their savings progress.
-The app should show how close they are to their savings goals.
-
-Data Visualization
-
-Use graphs or charts to show users their spending patterns.
-Help users understand their financial habits through visuals.
-
-Database for Storing Data
-
-Store user transactions and budgets in a database for persistence.
-
-Technologies
-Python Libraries:
-sqlite3: To store data locally in a database.
-matplotlib: For creating visualizations (e.g., bar charts, pie charts).
-pandas: For data manipulation and analysis.
-tkinter or flask: To create a simple graphical user interface (GUI) or web app.
-
-...
-
-
-What is remaining??
-
-1. A proper app like feel with a GUI, because the current terminal text only version seems 
-quite bland and not application like which does not conform to the whole app like feeling
-that I am trying to achieve
-
-
-Decompositon
-
-whats left?
-A proper GUI for the entire Application
-
-how do I do this
-tkinter to design
-intergrating all the features into the tkinter design
-backdoor linking to make sure data still transfers through the intended pathway
-
-
-order the steps
+Order of Steps:
 1. tkinter design
-2. feature intergration
-3. superaccess links
-4. backend links
+2. Feature integration
+3. Backend linking
+4. Advanced features and polish
 
+What do we already have?
+- Modular codebase (transactions, budgets, savings, visualization, database)
+- CLI for all core features
+- Basic GUI for visualizations
 
-what do we already have?
+What’s left?
+- Full-featured GUI for the entire application
+- Improved user experience and polish
+- Optional advanced features and export options
 
-we already have a gui system but only for visualisation of spendings and not the entire app
+This roadmap will help guide further development and make your project stand out on your CV. Good luck with your finance tracker application!
 
