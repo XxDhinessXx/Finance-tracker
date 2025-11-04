@@ -1,8 +1,8 @@
 from database import initialize_db, clear_all_data, get_connection 
 from transaction import add_transaction, view_transactions
 from budget import set_budget, view_budget
-from savings import set_savings_goal, check_savings_goal
-from visualization import visualize_spending
+from savings import set_savings_goal, check_savings_goal, view_savings_goal
+from visualization import visualize_spending, visualize_spending_bar
 import time as tm
 
 def launch_gui():
@@ -10,11 +10,29 @@ def launch_gui():
 
 running = True
 
+def print_budgets():
+    budgets = view_budget()
+    if not budgets:
+        print("No budgets set.")
+    else:
+        for budget in budgets:
+            print(f"Category: {budget[1]}, Amount: {budget[2]}")
+
+def print_transactions():
+    transactions = view_transactions()
+    if not transactions:
+        print("No transactions found.")
+    else:
+        for trans in transactions:
+            print(f"ID: {trans[0]}, Date: {trans[1]}, Desc: {trans[2]}, Cat: {trans[3]}, Amount: {trans[4]}")
+
 def main():
     global running
     initialize_db()
 
     print("Welcome to the Personal Finance Manager!")
+
+    categories = ["Food", "Rent", "Utilities", "Savings", "Income", "Other"]
 
     # This is the main loop of the program. It will run until the user chooses to exit 
     while running is True:
@@ -37,11 +55,13 @@ def main():
         tm.sleep(0.25)
         print("6. Check Savings Progress")
         tm.sleep(0.25)
-        print("7. Visualize Spending")
+        print("7. Visualize Spending (Pie Chart)")
         tm.sleep(0.25)
-        print("8. CLEAR ALL DATA")
+        print("8. Visualize Spending (Bar Chart)")
         tm.sleep(0.25)
-        print("9. Exit")
+        print("9. CLEAR ALL DATA")
+        tm.sleep(0.25)
+        print("10. Exit")
         tm.sleep(0.25)
         print("0. Launch GUI")  # <-- Added option
 
@@ -50,30 +70,47 @@ def main():
 
         if choice == '1':
             desc = input("Enter description: ")
+            print(f"Categories: {', '.join(categories)}")
             cat = input("Enter category: ")
-            amount = float(input("Enter amount: "))
-            add_transaction(desc, cat, amount)
+            try:
+                amount = float(input("Enter amount: "))
+                print(add_transaction(desc, cat, amount))
+            except ValueError:
+                print("Invalid amount.")
         elif choice == '2':
-            view_transactions()
+            print_transactions()
         elif choice == '3':
+            print(f"Categories: {', '.join(categories)}")
             category = input("Enter category: ")
-            amount = float(input(f"Set budget for {category}: "))
-            set_budget(category, amount)
+            try:
+                amount = float(input(f"Set budget for {category}: "))
+                print(set_budget(category, amount))
+            except ValueError:
+                print("Invalid amount.")
         elif choice == '4':
-            view_budget()
+            print_budgets()
         elif choice == '5':
-            goal = float(input("Enter savings goal: "))
-            set_savings_goal(goal)
+            try:
+                goal = float(input("Enter savings goal: "))
+                print(set_savings_goal(goal))
+            except ValueError:
+                print("Invalid amount.")
         elif choice == '6':
-            goal = float(input("Enter savings goal to check: "))
-            check_savings_goal(goal)
+            print(view_savings_goal())
+            try:
+                goal = float(input("Enter savings goal to check: "))
+                print(check_savings_goal(goal))
+            except ValueError:
+                print("Invalid amount.")
         elif choice == '7':
             visualize_spending()
         elif choice == '8':
+            visualize_spending_bar()
+        elif choice == '9':
             confirm = input("Are you sure you want to clear all data (yes/no): ")
             if confirm.lower() == 'yes':
                 clear_all_data()
-        elif choice == '9':
+        elif choice == '10':
             print("Goodbye!")
             running = False
         elif choice == '0':
