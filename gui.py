@@ -3,8 +3,8 @@ from tkinter import messagebox
 from database import initialize_db, clear_all_data
 from transaction import add_transaction, view_transactions
 from budget import set_budget, view_budget
-from savings import set_savings_goal, check_savings_goal
-from visualization import visualize_spending
+from savings import set_savings_goal, check_savings_goal, view_savings_goal
+from visualization import visualize_spending, visualize_spending_bar
 
 def add_transaction_gui():
     win = tk.Toplevel(root)
@@ -121,8 +121,15 @@ def check_savings_goal_gui():
 
     tk.Button(win, text="Submit", command=submit).grid(row=1, column=0, columnspan=2)
 
+def view_savings_goal_gui():
+    result = view_savings_goal()
+    messagebox.showinfo("Current Savings Goal", result)
+
 def visualize_spending_gui():
     visualize_spending()
+
+def visualize_spending_bar_gui():
+    visualize_spending_bar()
 
 def clear_all_data_gui():
     confirm = messagebox.askyesno("Confirm", "Are you sure you want to clear all data?")
@@ -145,7 +152,9 @@ tk.Button(root, text="Set Budget", width=30, command=set_budget_gui).pack(pady=5
 tk.Button(root, text="View Budget", width=30, command=view_budget_gui).pack(pady=5)
 tk.Button(root, text="Set Savings Goal", width=30, command=set_savings_goal_gui).pack(pady=5)
 tk.Button(root, text="Check Savings Progress", width=30, command=check_savings_goal_gui).pack(pady=5)
-tk.Button(root, text="Visualize Spending", width=30, command=visualize_spending_gui).pack(pady=5)
+tk.Button(root, text="Visualize Spending (Pie Chart)", width=30, command=visualize_spending_gui).pack(pady=5)
+tk.Button(root, text="Visualize Spending (Bar Chart)", width=30, command=visualize_spending_bar_gui).pack(pady=5)
+tk.Button(root, text="View Savings Goal", width=30, command=view_savings_goal_gui).pack(pady=5)
 tk.Button(root, text="CLEAR ALL DATA", width=30, fg="red", command=clear_all_data_gui).pack(pady=5)
 tk.Button(root, text="Exit", width=30, command=exit_app).pack(pady=5)
 
