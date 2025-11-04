@@ -1,0 +1,75 @@
+this is the project that is going to go on my CV for Post 16 computer science
+
+It is going to be a finance tracker equipped with expenses, income, budgets and savings. This can include features to record transactions,categorise expenses and visualise financial data
+
+1. with or without GUI?
+Most likely with GUI
+
+o develop a personal financial management application in Python, you can break down the functionality into several modules. The application will allow users to record transactions, categorize expenses, track income, set budgets, monitor savings, and visualize financial data. Below is a step-by-step guide on how to design the application, including sample Python code for each part.
+
+Components of the Application
+
+Transaction Recording
+
+Users can input their income and expenses.
+Transactions are categorized (e.g., "Food," "Rent," "Utilities," "Savings").
+Each transaction has a date, description, category, and amount.
+
+Budget Tracking
+
+Users can set budgets for different categories.
+The app should track whether users are staying within their budget.
+
+Savings Goals
+
+Users can track their savings progress.
+The app should show how close they are to their savings goals.
+
+Data Visualization
+
+Use graphs or charts to show users their spending patterns.
+Help users understand their financial habits through visuals.
+
+Database for Storing Data
+
+Store user transactions and budgets in a database for persistence.
+
+Technologies
+Python Libraries:
+sqlite3: To store data locally in a database.
+matplotlib: For creating visualizations (e.g., bar charts, pie charts).
+pandas: For data manipulation and analysis.
+tkinter or flask: To create a simple graphical user interface (GUI) or web app.
+
+...
+
+
+What is remaining??
+
+1. A proper app like feel with a GUI, because the current terminal text only version seems 
+quite bland and not application like which does not conform to the whole app like feeling
+that I am trying to achieve
+
+
+Decompositon
+
+whats left?
+A proper GUI for the entire Application
+
+how do I do this
+tkinter to design
+intergrating all the features into the tkinter design
+backdoor linking to make sure data still transfers through the intended pathway
+
+
+order the steps
+1. tkinter design
+2. feature intergration
+3. superaccess links
+4. backend links
+
+
+what do we already have?
+
+we already have a gui system but only for visualisation of spendings and not the entire app
+
